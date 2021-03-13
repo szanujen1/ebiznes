@@ -20,3 +20,15 @@ RUN npm --version && \
     java -version && \
     scala -version && \
     sbt about -Dsbt.rootdir=true
+
+RUN useradd -ms /bin/bash max && adduser max sudo
+
+USER max
+
+WORKDIR /home/max
+
+RUN mkdir task1
+
+EXPOSE 8080 3000
+
+VOLUME /home/max/task1
